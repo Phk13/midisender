@@ -1,7 +1,7 @@
 import config
 import rtmidi
 
-from sender import udp_sender, http_sender
+from sender import udp_sender
 
 
 def print_message(midi):
@@ -17,8 +17,6 @@ def print_message(midi):
 def main():
     if config.mode == "udp":
         sender = udp_sender.UDPMidiSender(config.udp_endpoint)
-    elif config.mode == "http":
-        sender = http_sender.HTTPMidiSender(config.http_endpoint)
     else:
         print(f"Invalid sender mode '{config.mode}'")
         return
