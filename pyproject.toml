@@ -1,0 +1,7 @@
+[project]
+name = "midisender"
+version = "0.1.0"
+description = "A Python utility for sending MIDI messages read from the loopback port"
+readme = "README.md"
+requires-python = "3.12"
+dependencies = ["rtmidi"]

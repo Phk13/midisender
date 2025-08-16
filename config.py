@@ -1,3 +1,3 @@
 
-mode = "udp"
-udp_endpoint = ("localhost", 8090)
+MODE = "udp"
+UDP_ENDPOINT = ("localhost", 8090)

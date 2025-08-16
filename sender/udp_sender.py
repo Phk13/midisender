@@ -1,9 +1,10 @@
 import socket
+from typing import Any
 
 from . import sender
 
 class UDPMidiSender(sender.MidiSender):
-    def __init__(self, endpoint: str):
+    def __init__(self, endpoint: tuple[Any, Any] | str):
         self.endpoint = endpoint
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 

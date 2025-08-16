@@ -15,13 +15,13 @@ def print_message(midi):
     #     print('CONTROLLER', midi.getControllerNumber(), midi.getControllerValue())
 
 def main():
-    if config.mode == "udp":
-        sender = udp_sender.UDPMidiSender(config.udp_endpoint)
+    if config.MODE == "udp":
+        sender = udp_sender.UDPMidiSender(config.UDP_ENDPOINT)
     else:
-        print(f"Invalid sender mode '{config.mode}'")
+        print(f"Invalid sender mode '{config.MODE}'")
         return
-        
-    midiin = rtmidi.RtMidiIn()
+
+    midiin = rtmidi.RtMidiIn() # type: ignore
     ports = range(midiin.getPortCount())
     print(f"{midiin.getPortCount()} in ports found")
     if ports:
@@ -30,7 +30,7 @@ def main():
             print(midiin.getPortName(i))
             if "loopMIDI" in midiin.getPortName(i):
                 port = i
-        print(f"Opening port {midiin.getPortName(port)}!") 
+        print(f"Opening port {midiin.getPortName(port)}!")
         midiin.openPort(port)
         while True:
             m = midiin.getMessage(5) # some timeout in ms
